@@ -1,16 +1,20 @@
 h1 {
   font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
   font-size: 40px;
   margin: 5px;
   padding: 10px 5px 5px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 li {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
   list-style: none;
+  font-size: 20px;
 }
 
 ul {
@@ -26,6 +30,8 @@ ul {
 
 .app-body {
   background-image: linear-gradient(-225deg, #b7f8db 0%, #50a7c2 100%);
+  border: solid 1px rgba(143, 152, 157, 0.6);
+  border-radius: 8px;
   width: 800px;
   height: 400px;
 }
@@ -41,5 +47,17 @@ ul {
 }
 
 .date {
-  font-size: 25px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.temp {
+  font-size: 48px;
+  font-weight: 400;
+}
+
+.small {
+  font: 15px;
+  position: relative;
+  top: 30px;
 }
