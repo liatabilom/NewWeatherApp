@@ -1,0 +1,14 @@
+body {
+font-family: font-family: 'Josefin Sans', sans-serif;
+font-size: 20px;
+}
+
+h1{
+font-family: font-family: 'Pathway Gothic One', sans-serif;
+font-size: 40px;
+}
+
+.app-container {
+display: block;
+margin: 25px 65px;
+}
