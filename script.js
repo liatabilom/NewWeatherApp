@@ -8,25 +8,60 @@ function showTemp(response) {
 
   let place = document.querySelector("#place");
   place.innerHTML = response.data.name;
-}
 
-axios.get(apiUrl).then(showTemp);
+  let description = document.querySelector("#description");
+  description.innerHTML = `Sky: ${response.data.weather[0].description}`;
 
-function weatherDetails(response) {
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = `Humidity: ${response.data.main.humidity}%`;
 
   let windSpeed = document.querySelector("#windSpeed");
-  windSpeed.innerHTML = `Wind Speed: ${response.data.wind.speed}hm/h`;
+  windSpeed.innerHTML = `Wind Speed: ${Math.round(
+    response.data.wind.speed
+  )} km/h`;
 
-  let description = document.querySelector("#description");
-  description.innerHTML = `Sky: ${response.data.weather[0].description}`;
+  let date = document.querySelector("#date");
+  date.innerHTML = showDate(new Date(response.data.dt * 1000));
+  console.log(response.data);
 }
-axios.get(apiUrl).then(weatherDetails);
+axios.get(apiUrl).then(showTemp);
 
-let now = new Date();
-let month = now.getMonth();
-let day = now.getDate();
+function showDate(date) {
+  let hour = date.getHours();
+  let dayNumber = date.getDate();
 
-let time = document.querySelector("#time");
-time.innerHTML = now;
+  let dayName = date.getDay();
+  let daysName = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+
+  let month = date.getMonth();
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Nov",
+    "Dec"
+  ];
+
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  return `${daysName(dayName)} ${months(
+    month
+  )} ${dayNumber}, ${hour}:${minute}`;
+}
