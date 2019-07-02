@@ -3,10 +3,6 @@ let apiKey = "2e84a4ecaf1708e1643c02326f19599e";
 let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
 function showDate(date) {
-  let year = date.getFullYear();
-  let dayNumber = date.getDate();
-  let hour = date.getHour();
-
   let day = date.getDay();
   let days = [
     "Sunday",
@@ -37,12 +33,21 @@ function showDate(date) {
 
   let monthsName = months[month];
 
+  let dayNumber = date.getDate();
+  let hour = date.getHours();
+
   let minutes = date.getMinutes();
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
 
-  return `${daysName} ${monthsName} ${dayNumber}, ${year} ${hour}:${minute}`;
+  return `${daysName} ${monthsName} ${dayNumber}, ${hour}:${minute}`;
+}
+
+function checkCity(response) {
+  event.preventDefault();
+  let keyword = document.querySelector("#keyword");
+  alert(keyword.value);
 }
 
 function displayWeather(response) {
