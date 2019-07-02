@@ -2,6 +2,9 @@ let city = "Lisbon";
 let apiKey = "2e84a4ecaf1708e1643c02326f19599e";
 let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
+let form = document.querySelector("form");
+form.addEventListener("submit", checkCity);
+
 // function showDate(date) {
 //   let day = date.getDay();
 //   let days = [
