@@ -1,10 +1,3 @@
-let city = "Lisbon";
-let apiKey = "2e84a4ecaf1708e1643c02326f19599e";
-let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
-let form = document.querySelector("form");
-form.addEventListener("submit", checkCity);
-
 // function showDate(date) {
 //   let day = date.getDay();
 //   let days = [
@@ -50,7 +43,13 @@ form.addEventListener("submit", checkCity);
 function checkCity(event) {
   event.preventDefault();
   let keyword = document.querySelector("#keyword");
-  alert(keyword.value);
+  search(keyword.value);
+}
+
+function search(city) {
+  let apiKey = "2e84a4ecaf1708e1643c02326f19599e";
+  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeather);
 }
 
 function displayWeather(response) {
@@ -81,4 +80,5 @@ function displayWeather(response) {
   );
 }
 
-axios.get(apiUrl).then(displayWeather);
+let form = document.querySelector("form");
+form.addEventListener("submit", checkCity);
