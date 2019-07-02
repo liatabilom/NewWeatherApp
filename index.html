@@ -28,51 +28,75 @@
         <h2>
           <ul>
             <li>
-              <form>
-              <input 
-              class="city-input" 
-              type="text" 
-              id="keyword"
-              placeholder="Type your city" 
-              autofocus="on" 
-              autocomplete="off"/>
-              <input
-                class="btn btn-primary button"
-                type="submit"
-                value="Check"
-              />
-              </form>
+              <div class="row">
+                <form class="form-inline">
+                  <div class="clearfix">
+                    <div class="float-left">
+                      <div class="col-4">
+                        <input
+                          class="city-input"
+                          type="text"
+                          id="keyword"
+                          placeholder="Type your city"
+                          autofocus="on"
+                          autocomplete="off"
+                        />
+                      </div>
+                    </div>
+                    <div class="float-left ml-1">
+                      <div class="col-2 mr-3">
+                        <input
+                          class="btn btn-primary button"
+                          type="submit"
+                          value="Check"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
             </li>
-            <li class="time"><span id="date">Monday, July 1st 14:08</span></li>
+            <div class="row">
+            <div class="col-5">
+            <li class="time"><span id="date">Monday, July 1st 14:08</span>
+            </li>
+            </div>
+            <div class="col-2">
+
+            </div>
+            <div class="col-5">
+              <div class="float-center">
+                <li class="weatherDetails">
+                <i class="fas fa-cloud-sun coundSun-icon"></i>
+                  <span id="description" class="text-capitalize">Sky</span>
+                </li>
+                <li class="weatherDetails">
+                  <i class="fas fa-tint humity-icon mr-2"></i>
+                  <span id="humidity">Humity</span>
+                </li>
+                <li class="weatherDetails">
+                  <i class="fas fa-fan fan-icon mr-2"></i>
+                  <span id="windSpeed">Wind speed</span>
+                </li>
+            </div>
+            </div>
           </ul>
         </h2>
 
         <h3>
-          <div class="row mt-3">
-            <div class="col-7">
+          <div class="row">
+            <div class="col-12">
               <div class="clearfix">
                 <div class="float-left mt-1 mr-2">
-                  <img id="icon">
+                  <img id="icon" />
                 </div>
                 <div class="float-left">
-                  <li class="temp"><span id="temperature"></span><small>ºC</small> <span id="place"></span></li>
+                  <li class="temp">
+                    <span id="temperature"></span><small>ºC</small>
+                    <span id="place"></span>
+                  </li>
                 </div>
               </div>
-            </div>
-          <div class="col-5">
-            <div class="card windTemp-card">
-              <li>
-                <i class="fas fa-cloud-sun coundSun-icon"></i>
-                <span id="description" class="text-capitalize">Sky</span>
-              </li>
-              <li>
-                <i class="fas fa-tint humity-icon mr-3"></i>
-                <span id="humidity">Humity</span>
-              </li>
-              <li>
-                <i class="fas fa-fan fan-icon mr-2"></i>
-                <span id="windSpeed">Wind speed</span>
-              </li>
             </div>
           </div>
         </h3>
