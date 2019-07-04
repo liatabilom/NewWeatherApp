@@ -1,44 +1,44 @@
-// function showDate(date) {
-//   let day = date.getDay();
-//   let days = [
-//     "Sunday",
-//     "Monday",
-//     "Tuesday",
-//     "Wednesday",
-//     "Thursday",
-//     "Friday",
-//     "Saturday"
-//   ];
+function showDate(date) {
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
 
-//   let daysName = days[day];
+  let daysName = days[day];
 
-//   let month = date.getMonth();
-//   let months = [
-//     "Jan",
-//     "Feb",
-//     "Mar",
-//     "Apr",
-//     "May",
-//     "Jun",
-//     "Jul",
-//     "Aug",
-//     "Sep",
-//     "Nov",
-//     "Dec"
-//   ];
+  let month = date.getMonth();
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Nov",
+    "Dec"
+  ];
 
-//   let monthsName = months[month];
+  let monthsName = months[month];
 
-//   let dayNumber = date.getDate();
-//   let hour = date.getHours();
+  let dayNumber = date.getDate();
+  let hour = date.getHours();
 
-//   let minutes = date.getMinutes();
-//   if (minutes < 10) {
-//     minutes = `0${minutes}`;
-//   }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
 
-//   return `${daysName} ${monthsName} ${dayNumber}, ${hour}:${minute}`;
-// }
+  return `${daysName} ${monthsName} ${dayNumber}, ${hour}:${minutes}`;
+}
 
 function checkCity(event) {
   event.preventDefault();
@@ -46,9 +46,9 @@ function checkCity(event) {
   search(keyword.value);
 }
 
-function search(city) {
+function search(city, country) {
   let apiKey = "2e84a4ecaf1708e1643c02326f19599e";
-  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeather);
 }
 
@@ -70,8 +70,8 @@ function displayWeather(response) {
     response.data.wind.speed
   )} km/h`;
 
-  //let date = document.querySelector("#date");
-  //date.innerHTML = showDate(new Date(response.data.dt * 1000));
+  let date = document.querySelector("#date");
+  date.innerHTML = showDate(new Date(response.data.dt * 1000));
 
   let icon = document.querySelector("#icon");
   icon.setAttribute(
@@ -82,4 +82,4 @@ function displayWeather(response) {
 
 let form = document.querySelector("form");
 form.addEventListener("submit", checkCity);
-search("Lisbon");
+search("Lisbon, pt");
